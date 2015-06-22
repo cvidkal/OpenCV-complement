@@ -20,11 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anms.cpp" />
+    <ClCompile Include="draw.cpp" />
     <ClCompile Include="getMatch.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="anms.h" />
+    <ClInclude Include="draw.h" />
     <ClInclude Include="getMatch.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
