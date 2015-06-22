@@ -25,7 +25,8 @@ public:
 	~GetMatch();
 
 	void GetDMatch(const vector<vector<DMatch>> &dmatches, const vector<int>&idx, vector<DMatch> &dmatch);
-
+	void GetInlier(vector<KeyPoint> &kpts, const vector<int>&idx);
+	void GetInlier(vector<KeyPoint> &kpts, const Mat& mask);
 	void operator() (const vector<vector<DMatch>> &dmatches, vector<int> &idx);
 private:
 	matchType _type;

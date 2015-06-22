@@ -51,6 +51,31 @@ GetMatch::~GetMatch()
 
 
 
+void GetMatch::GetInlier(vector<KeyPoint> &kpts, const vector<int>&idx)
+{
+	vector<KeyPoint> temp;
+	for (auto i : idx)
+	{
+		temp.push_back(kpts[i]);
+	}
+	kpts = temp;
+}
+void GetMatch::GetInlier(vector<KeyPoint> &kpts, const Mat& mask)
+{
+	CV_Assert(kpts.size() == mask.rows);
+	vector<KeyPoint> temp;
+	for (size_t i = 0; i < mask.rows; i++)
+	{
+		if (mask.at<char>(i))
+		{
+			temp.push_back(kpts[i]);
+		}
+	}
+	kpts = temp;
+}
+
+
+
 
 
 
