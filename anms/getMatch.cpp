@@ -51,27 +51,27 @@ GetMatch::~GetMatch()
 
 
 
-void GetMatch::GetInlier(vector<KeyPoint> &kpts, const vector<int>&idx)
+void GetMatch::GetDMatch(vector<DMatch> &dmatch, const vector<int>&idx)
 {
-	vector<KeyPoint> temp;
+	vector<DMatch> temp;
 	for (auto i : idx)
 	{
-		temp.push_back(kpts[i]);
+		temp.push_back(dmatch[i]);
 	}
-	kpts = temp;
+	dmatch = temp;
 }
-void GetMatch::GetInlier(vector<KeyPoint> &kpts, const Mat& mask)
+void GetMatch::GetDMatch(vector<DMatch> &dmatch, const Mat& mask)
 {
-	CV_Assert(kpts.size() == mask.rows);
-	vector<KeyPoint> temp;
+	CV_Assert(dmatch.size() == mask.rows);
+	vector<DMatch> temp;
 	for (size_t i = 0; i < mask.rows; i++)
 	{
 		if (mask.at<char>(i))
 		{
-			temp.push_back(kpts[i]);
+			temp.push_back(dmatch[i]);
 		}
 	}
-	kpts = temp;
+	dmatch = temp;
 }
 
 
