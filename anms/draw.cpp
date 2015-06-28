@@ -14,6 +14,17 @@ Mat drawTrackLine(const Mat &img,const vector<KeyPoint> &origin,const vector<Key
 	return ret;
 }
 
+Mat drawTrackLine(const Mat&img, const vector<Point2f> &origin, const vector<Point2f> &now, Scalar color, int thickness)
+{
+	CV_Assert(origin.size() == now.size());
+	Mat ret = img.clone();
+	for (int i = 0; i < origin.size(); i++)
+	{
+		line(ret, origin[i], now[i], color, thickness);
+	}
+	return ret;
+}
+
 
 Mat drawInfo(const Mat &img, const string &str, const Point2i &pos, Scalar color, int thickness)
 {

@@ -7,11 +7,7 @@
 using namespace cv;
 using namespace std;
 
-void anms(vector<KeyPoint> &kptsIn, const int k);
-
-
-
-
+void anms(std::vector<KeyPoint> & keypoints, const int k, std::vector<int> &idx, cv::Size imgSize);
 
 
 #endif

@@ -51,35 +51,12 @@ GetMatch::~GetMatch()
 
 
 
-void GetMatch::GetDMatch(vector<DMatch> &dmatch, const vector<int>&idx)
-{
-	vector<DMatch> temp;
-	for (auto i : idx)
-	{
-		temp.push_back(dmatch[i]);
-	}
-	dmatch = temp;
-}
-
-void GetMatch::GetDMatch(vector<DMatch> &dmatch, const Mat& mask)
-{
-	CV_Assert(dmatch.size() == mask.rows);
-	vector<DMatch> temp;
-	for (size_t i = 0; i < mask.rows; i++)
-	{
-		if (mask.at<char>(i))
-		{
-			temp.push_back(dmatch[i]);
-		}
-	}
-	dmatch = temp;
-}
-
-
 void GetMatch::preparePoint2D(const vector<KeyPoint> &query, const vector<KeyPoint> train, const vector<DMatch> &dmatch, vector<Point2f> &query2D, vector<Point2f> &train2D)
 {
 	for (auto &i : dmatch)
 	{
+		if (i.queryIdx < 0)
+			continue;
 		query2D.push_back(query[i.queryIdx].pt);
 		train2D.push_back(train[i.trainIdx].pt);
 	}

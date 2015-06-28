@@ -23,11 +23,13 @@
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="getMatch.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TickMeter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="anms.h" />
     <ClInclude Include="draw.h" />
     <ClInclude Include="getMatch.h" />
+    <ClInclude Include="TickMeter.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{57E835C8-F5CB-422B-80C2-FB89F8861C67}</ProjectGuid>
@@ -55,7 +57,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
